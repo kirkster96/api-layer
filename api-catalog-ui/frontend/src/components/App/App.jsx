@@ -16,18 +16,12 @@ import '../../assets/css/APIMReactToastify.css';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import HeaderContainer from '../Header/HeaderContainer';
 import Spinner from '../Spinner/Spinner';
-import { closeMobileMenu, isAPIPortal } from '../../utils/utilFunctions';
 import { AsyncDashboardContainer, AsyncDetailPageContainer, AsyncLoginContainer } from './AsyncModules'; // eslint-disable-line import/no-cycle
 
 class App extends Component {
     componentDidMount() {
         // workaround for missing process polyfill in webpack 5
         window.process = { ...window.process };
-        window.onresize = () => {
-            if (document.body.offsetWidth > 767) {
-                closeMobileMenu();
-            }
-        };
     }
 
     render() {
@@ -46,12 +40,6 @@ class App extends Component {
                             <>
                                 <div className="content">
                                     <Route path={headerPath} component={HeaderContainer} />
-
-                                    {isAPIPortal() && (
-                                        <div className="dashboard-mobile-menu mobile-view">
-                                            <Route path={headerPath} component={HeaderContainer} />
-                                        </div>
-                                    )}
 
                                     <Switch>
                                         <Route path="/" exact render={() => <Redirect replace to={dashboardPath} />} />
