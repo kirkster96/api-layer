@@ -19,7 +19,7 @@ import picocli.CommandLine.Option;
     "OS: ${os.name} ${os.version} ${os.arch}"})
 public class ApimlConf implements Config {
 
-    @Option(names = {"-k", "--keystore"}, description = "Path to keystore file or keyring. When using keyring, pass -Djava.protocol.handler.pkgs=com.ibm.crypto.provider in command line.")
+    @Option(names = {"-k", "--keystore"}, description = "Path to keystore file or keyring. When using keyring, pass -Djava.protocol.handler.pkgs=com.ibm.crypto.provider in command line. Use -Djava.protocol.handler.pkgs=com.ibm.crypto.zsecurity.provider for Java 17")
     private String keyStore;
     @Option(names = {"-t", "--truststore"}, description = "Path to truststore file or keyring")
     private String trustStore;
