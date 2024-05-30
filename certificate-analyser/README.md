@@ -45,7 +45,7 @@ java -jar -Djavax.net.debug=ssl:handshake:verbose certificate-analyser-<version>
 
 ### Keyring
 
-If you are using SAF keyrings, you need to provide an additional parameter in command line `-Djava.protocol.handler.pkgs=com.ibm.crypto.provider`.
+If you are using SAF keyrings, you need to provide an additional parameter in command line `-Djava.protocol.handler.pkgs=com.ibm.crypto.provider`. Use -Djava.protocol.handler.pkgs=com.ibm.crypto.zsecurity.provider for Java 17
 
 ### Possible issues
 
